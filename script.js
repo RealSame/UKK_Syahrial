@@ -1,11 +1,11 @@
 const display = document.getElementById('display');
 let input = "";
 
-document.querySelectorAll(".btn-number, .btn-operator").forEach(button => {
+document.querySelectorAll(".btn-number, .btn-operator:not(#equal):not(#backspace)").forEach(button => {
     button.addEventListener('click', () => {
         const id = button.id;
         if (id !== 'clear' && id !== 'equal' && id !== 'backspace') {
-            input += button.innerText;
+            input += button.dataset.value || button.innerText;
             display.textContent = input;
         }
     })
